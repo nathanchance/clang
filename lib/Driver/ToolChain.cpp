@@ -819,7 +819,8 @@ SanitizerMask ToolChain::getSupportedSanitizers() const {
 
   SanitizerMask Res = (Undefined & ~Vptr & ~Function) | (CFI & ~CFIICall) |
                       CFICastStrict | UnsignedIntegerOverflow |
-                      ImplicitConversion | Nullability | LocalBounds;
+                      ImplicitConversion | Nullability | LocalBounds |
+                      LocalInit;
   if (getTriple().getArch() == llvm::Triple::x86 ||
       getTriple().getArch() == llvm::Triple::x86_64 ||
       getTriple().getArch() == llvm::Triple::arm ||
