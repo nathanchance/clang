@@ -55,6 +55,9 @@ std::string getClangRepositoryPath() {
 }
 
 std::string getLLVMRepositoryPath() {
+#if defined(LLVM_REPOSITORY_STRING)
+  return LLVM_REPOSITORY_STRING;
+#else
 #ifdef LLVM_REPOSITORY
   StringRef URL(LLVM_REPOSITORY);
 #else
@@ -69,6 +72,7 @@ std::string getLLVMRepositoryPath() {
     URL = URL.substr(Start);
 
   return URL;
+#endif
 }
 
 std::string getClangRevision() {
