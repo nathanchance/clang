@@ -290,6 +290,13 @@ if(CLANG_REPOSITORY_STRING)
   add_definitions(-DCLANG_REPOSITORY_STRING="${CLANG_REPOSITORY_STRING}")
 endif()
 
+set(LLVM_REPOSITORY_STRING "" CACHE STRING
+  "Vendor-specific text for showing the repository the LLVM source is taken from.")
+
+if(LLVM_REPOSITORY_STRING)
+  add_definitions(-DLLVM_REPOSITORY_STRING="${LLVM_REPOSITORY_STRING}")
+endif()
+
 set(CLANG_VENDOR_UTI "org.llvm.clang" CACHE STRING
   "Vendor-specific uti.")
 
